@@ -10,7 +10,7 @@ package aplicaciones.impresora;
  *  @version (Curso 2018-2019)
  */
  
-public class Trabajo {
+public class Trabajo implements Comparable<Trabajo> {
     
     private String titulo;
     private int numPaginas;
@@ -56,6 +56,7 @@ public class Trabajo {
      */
     public int compareTo(Trabajo otro) { 
         /*COMPLETAR*/
+        return this.numPaginas - otro.numPaginas;
     }
     
     /** Devuelve el String que representa un Trabajo en un cierto 

@@ -20,6 +20,7 @@ public class ServidorColaPrioridad implements ServidorDeImpresion {
     /** Crea un Servidor de Impresion vacio. */
     public ServidorColaPrioridad() { 
         /*COMPLETAR*/
+        cP = new MonticuloBinarioR0<Trabajo>();
     }
     
     /** Incluye un nuevo trabajo en espera t en un ServidorDeImpresion.
@@ -27,6 +28,7 @@ public class ServidorColaPrioridad implements ServidorDeImpresion {
      */
     public void insertar(Trabajo t) { 
         /*COMPLETAR*/
+        cP.insertar(t);
     }
     
     /** Comprueba si hay algun trabajo en espera en un ServidorDeImpresion.
@@ -34,6 +36,7 @@ public class ServidorColaPrioridad implements ServidorDeImpresion {
      */
     public boolean hayTrabajos() { 
         /*COMPLETAR*/
+        return !cP.esVacia();
     }
     
     /** SII hayTrabajos(): devuelve el Trabajo de un ServidorDeImpresion
@@ -42,6 +45,7 @@ public class ServidorColaPrioridad implements ServidorDeImpresion {
      */
     public Trabajo getTrabajo() { 
         /*COMPLETAR*/
+        return cP.recuperarMin();
     }
     
     /** SII hayTrabajos(): elimina de un ServidorDeImpresion el 
@@ -51,6 +55,7 @@ public class ServidorColaPrioridad implements ServidorDeImpresion {
      */
     public int imprimirTrabajo() { 
         /*COMPLETAR*/
+        Trabajo t = cP.eliminarMin();
         int tiempoImpresion = 
             (int) (Math.round(60.0 * t.getNumPaginas() / PAGINAS_POR_MINUTO));
         return tiempoImpresion;
